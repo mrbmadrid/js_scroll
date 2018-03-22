@@ -16,6 +16,7 @@
 			border-right: 1px solid #777;
 			padding-right: 7px;
 			display: inline;
+			white-space: pre;
 		}
 	</style>
 </head>
@@ -32,8 +33,6 @@
 
 		function updateText()
 		{
-			el.innerHTML = el.innerHTML+words[word_counter][character_counter++];
-
 			if(character_counter == words[word_counter].length)
 			{
 				word_counter++; 	//choose a different word
@@ -43,10 +42,12 @@
 				//if we're displaying the last word, go back to the first word
 				if(word_counter == words.length)
 					word_counter = 0;
+			}else{
+			el.innerHTML += words[word_counter][character_counter++];
 			}
 		}
 
-		setInterval(updateText,300);
+		setInterval(updateText, 300);
 
 	</script>
 
